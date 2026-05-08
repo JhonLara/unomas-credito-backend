@@ -18,7 +18,7 @@ import java.util.Map;
 @Slf4j
 @Service
 @Primary
-@Profile({"prod", "api"})
+@Profile("api")
 @RequiredArgsConstructor
 public class CreditoApiClient implements CreditoPort {
 

@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-@Profile({"!prod", "!api"})
+@Profile("!api")
 public class CreditoMockService implements CreditoPort {
     public Map<String, Object> obtenerCreditoPorCedula(String cedula) {
         boolean enMora = cedula.endsWith("1") || cedula.equals("11111111");
