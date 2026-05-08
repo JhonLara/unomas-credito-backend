@@ -1,0 +1,9 @@
+{
+  "info": { "name": "Uno+1 Creditos API", "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json" },
+  "item": [
+    { "name": "Register", "request": { "method": "POST", "header": [{"key":"Content-Type","value":"application/json"}], "url": "http://localhost:8080/api/auth/register", "body": { "mode": "raw", "raw": "{\n  \"cedula\": \"11111111\",\n  \"email\": \"cliente@test.com\",\n  \"celular\": \"3001234567\",\n  \"password\": \"Password123\"\n}" } } },
+    { "name": "Login", "request": { "method": "POST", "header": [{"key":"Content-Type","value":"application/json"}], "url": "http://localhost:8080/api/auth/login", "body": { "mode": "raw", "raw": "{\n  \"cedula\": \"11111111\",\n  \"password\": \"Password123\"\n}" } } },
+    { "name": "Consultar Credito Mock", "request": { "method": "GET", "url": "http://localhost:8080/api/creditos/11111111" } },
+    { "name": "URL Pago", "request": { "method": "GET", "url": "http://localhost:8080/api/payment/redirect-url" } }
+  ]
+}

@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: unomasdb
+      POSTGRES_USER: unomas
+      POSTGRES_PASSWORD: unomas
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build: .
+    environment:
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-prod}
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: unomasdb
+      DB_USER: unomas
+      DB_PASSWORD: unomas
+      JWT_SECRET: ${JWT_SECRET:-cambiar-este-secreto-en-produccion-cambiar-este-secreto-en-produccion}
+      JWT_EXPIRATION_MINUTES: 120
+      SADMIN_USERNAME: ${SADMIN_USERNAME:-}
+      SADMIN_PASSWORD: ${SADMIN_PASSWORD:-}
+      SADMIN_CREDITO_URL: ${SADMIN_CREDITO_URL:-}
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
