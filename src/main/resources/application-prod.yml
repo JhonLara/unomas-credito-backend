@@ -3,7 +3,7 @@ spring:
     name: unomas-credito-backend
   datasource:
     # Railway provee DATABASE_URL; si no está disponible, usamos variables individuales
-    url: jdbc:${DATABASE_URL:postgresql://${PGHOST:localhost}:${PGPORT:5432}/${PGDATABASE:unomasdb}}
+    url: jdbc:postgresql://${PGHOST:localhost}:${PGPORT:5432}/${PGDATABASE:unomasdb}
     username: ${PGUSER:unomas}
     password: ${PGPASSWORD:unomas}
     driver-class-name: org.postgresql.Driver
