@@ -34,6 +34,7 @@ public class JwtService {
         try {
             return !extractAllClaims(token).getExpiration().before(new Date());
         } catch (Exception e) {
+            System.err.println("JWT validation error: " + e.getClass().getSimpleName() + " - " + e.getMessage());
             return false;
         }
     }
