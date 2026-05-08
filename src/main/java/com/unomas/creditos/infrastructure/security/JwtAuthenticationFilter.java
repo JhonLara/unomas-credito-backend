@@ -39,6 +39,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         final String jwt = authHeader.substring(7);
         if (!jwtService.isTokenValid(jwt)) {
+            System.err.println("JWT validation failed for token: " + jwt.substring(0, Math.min(20, jwt.length())) + "...");
             filterChain.doFilter(request, response);
             return;
         }
